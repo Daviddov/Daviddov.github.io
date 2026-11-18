@@ -96,6 +96,23 @@ h2{font-size:30px;letter-spacing:-.025em;margin:0 0 8px}
 .job li{margin:6px 0}
 .job li b{color:var(--text);font-weight:600}
 .job + .job{margin-top:14px}
+.job-lead{color:var(--muted);margin:12px 0 0;max-width:820px}
+.job-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:20px 0}
+.job-stats div{background:var(--surface-2);padding:14px 16px}
+.job-stats b{display:block;font-size:22px;letter-spacing:-.02em}
+.job-stats span{font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){.job-stats{grid-template-columns:repeat(2,1fr)}}
+.sites{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.sites a{display:flex;flex-direction:column;font-size:14px;font-weight:600;padding:8px 13px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);line-height:1.3}
+.sites a:hover{border-color:var(--accent);text-decoration:none}
+.sites small{font-weight:500;color:var(--muted);font-size:12px}
+.areas{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:760px){.areas{grid-template-columns:1fr}}
+.area{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--surface-2)}
+.area h4{margin:0;font-size:15px}
+.area ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.area li{margin:5px 0}
+.area li b{color:var(--text);font-weight:600}
 
 /* featured */
 .featured{display:grid;grid-template-columns:1.15fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px}
@@ -163,7 +180,7 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
   <div class="wrap">
     <div class="eyebrow">AI-Driven Software Developer · Jerusalem</div>
     <h1>I build and ship production software<br><span class="soft">with AI coding agents.</span></h1>
-    <p class="lead">Full-stack developer (Next.js, React, TypeScript). For the past year I haven't written code by hand. <b>I research, map and plan the system, break it into tasks, and direct agents like Claude Code through build loops with tests, review and fixes until it's right.</b> I work at a news media company and run my own products on the side.</p>
+    <p class="lead">Full-stack developer (Next.js, React, TypeScript). For the past year I haven't written code by hand. <b>I research, map and plan the system, break it into tasks, and direct agents like Claude Code through build loops with tests, review and fixes until it's right.</b> By day I'm a core developer on five Israeli news sites and a news app. On the side I build and run my own products.</p>
     <div class="ctas">
       <a class="btn primary" href="David-Bar-Or-CV.pdf" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download CV</a>
@@ -176,9 +193,9 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
     </div>
 
     <div class="stats">
+      <div class="stat"><b>5</b><span>high-traffic news sites I develop</span></div>
+      <div class="stat"><b>860+</b><span>commits in the company monorepo</span></div>
       <div class="stat"><b>500+</b><span>AI-illustrated books live on MyStory</span></div>
-      <div class="stat"><b>3</b><span>languages: Hebrew, Arabic, English</span></div>
-      <div class="stat"><b>12,000+</b><span>text segments in the Maharal corpus</span></div>
       <div class="stat"><b>50+</b><span>public repositories on GitHub</span></div>
     </div>
   </div>
@@ -207,14 +224,56 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
 <section id="work">
   <div class="wrap">
     <h2>Work</h2>
-    <p class="sub">Where I build for a living.</p>
-    <div class="job">
-      <div class="job-head"><h3>Software Developer · <a href="https://www.kikar.co.il" target="_blank" rel="noopener">Kikar HaShabbat</a></h3><span class="when">2025 – present</span></div>
-      <ul>
-        <li>Develop and maintain several high-traffic news portals with <b>React, Next.js and React Native</b>.</li>
-        <li>Built a <b>real-time content harvesting and analysis system</b> that tracks competing news sites and matches stories across sources for the editorial team.</li>
-        <li>Built an <b>RSS analytics dashboard</b> (Next.js, shadcn/ui, React Query) with live metrics, source comparison and story-match scores.</li>
-      </ul>
+    <p class="sub">My main work: I'm a core developer on a media group's news platform, which runs five high-traffic Israeli news sites and a mobile app from one monorepo.</p>
+    <div class="job main-job">
+      <div class="job-head"><h3>Software Developer · <a href="https://www.kikar.co.il" target="_blank" rel="noopener">Kikar HaShabbat</a> media group</h3><span class="when">2025 – present</span></div>
+      <p class="job-lead">Astro 6, React 19 and TypeScript on Cloudflare, a React Native / Expo app and NestJS services, all in one pnpm + Turborepo monorepo shared by a small team. I wrote most of the commits on the Kikar and Babli sites, and about half on i24NEWS, Srugim, JFeed and the Kikar app.</p>
+      <div class="job-stats">
+        <div><b>860+</b><span>commits since Feb 2026</span></div>
+        <div><b>5</b><span>news sites + 1 app</span></div>
+        <div><b>110</b><span>test files written</span></div>
+        <div><b>14</b><span>design &amp; plan docs</span></div>
+      </div>
+      <div class="sites">
+        <a href="https://www.kikar.co.il" target="_blank" rel="noopener">Kikar HaShabbat<small>kikar.co.il</small></a>
+        <a href="https://www.babli.co.il" target="_blank" rel="noopener">Babli<small>babli.co.il</small></a>
+        <a href="https://www.i24news.tv/he" target="_blank" rel="noopener">i24NEWS Hebrew<small>i24news.tv/he</small></a>
+        <a href="https://www.srugim.co.il" target="_blank" rel="noopener">Srugim<small>srugim.co.il</small></a>
+        <a href="https://www.jfeed.com" target="_blank" rel="noopener">JFeed<small>jfeed.com</small></a>
+        <a href="https://www.kikar.co.il" target="_blank" rel="noopener">Kikar app<small>iOS &amp; Android</small></a>
+      </div>
+      <div class="areas">
+        <div class="area"><h4>Platform &amp; migration</h4><ul>
+          <li>Rebuilt news sites on <b>Astro + React islands</b> at the edge (Cloudflare). I started the Babli move from Next.js with a written design-parity map.</li>
+          <li>Kept old URLs alive for SEO with legacy redirects, canonical paths and tag, author and slug normalization.</li>
+          <li>Built shared packages (podcast, video, audio player, elections) used by several sites.</li></ul></div>
+        <div class="area"><h4>Performance</h4><ul>
+          <li>Core Web Vitals work: LCP image priority, reserved ad heights against CLS, and deferred third-party scripts.</li>
+          <li>Edge-cache rules, server-side prefetching and degraded rendering when a secondary fetch fails.</li>
+          <li>Real-user Core Web Vitals tracking in production.</li></ul></div>
+        <div class="area"><h4>Video, audio &amp; podcasts</h4><ul>
+          <li>Vidstack / HLS player with a live mini-player dock, picture-in-picture, chapters, autoplay-next and resume.</li>
+          <li>VOD shows and episodes, a podcasts hub with RSS and Spotify, Kikar FM radio and daily schedules.</li>
+          <li>Audio fallback when a video stream is blocked.</li></ul></div>
+        <div class="area"><h4>Ads &amp; monetization</h4><ul>
+          <li>Google Ad Manager, Outbrain and Taboola: in-feed, sticky, tower and interstitial units, with ad reservations.</li>
+          <li>Ad-blocker-safe providers, preview mode, route-based ad flags and sponsored content.</li>
+          <li>GDPR cookie consent tied to analytics and ads.txt.</li></ul></div>
+        <div class="area"><h4>SEO &amp; analytics</h4><ul>
+          <li>Structured data: NewsArticle, VideoObject, authors, organization and breadcrumbs.</li>
+          <li>Sitemaps, RSS per category, an authors directory and editorial and corrections policy pages.</li>
+          <li>Article view, read and scroll-depth events with session de-duplication and referrer attribution.</li></ul></div>
+        <div class="area"><h4>Product features</h4><ul>
+          <li>Elections hub and quiz, Home Front Command alerts, breaking-news ticker, live blog, comments and reactions.</li>
+          <li>Halachic times, siddur, Hebrew calendar, weather, newsletter, jobs and search.</li>
+          <li>Web push notifications with Firebase and OneSignal.</li></ul></div>
+        <div class="area"><h4>Kikar mobile app</h4><ul>
+          <li>React Native / Expo app: native home, video feed, halachic times, saved items and a tab bar.</li>
+          <li>Article WebView bridge (theme, fullscreen video, navigation), push notifications and forced updates.</li></ul></div>
+        <div class="area"><h4>Editorial tools</h4><ul>
+          <li>A <b>real-time content harvesting and analysis system</b> that tracks competing news sites and matches stories across sources.</li>
+          <li>An <b>RSS analytics dashboard</b> (Next.js, shadcn/ui, React Query) with live metrics and story-match scores.</li></ul></div>
+      </div>
     </div>
     <div class="job">
       <div class="job-head"><h3>Mentor · Kodcode</h3><span class="when">2024 – 2025</span></div>
@@ -358,8 +417,8 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
     <p class="sub">The tools I build with, and the foundations I use to judge what AI produces.</p>
     <div class="skills">
       <div class="skill"><h3>AI development</h3><div class="tags"><span class="tag">Claude Code</span><span class="tag">Multi-agent workflows</span><span class="tag">MCP</span><span class="tag">Browser automation</span><span class="tag">Spec &amp; prompt writing</span><span class="tag">Anthropic API</span><span class="tag">Gemini</span><span class="tag">Image / TTS / music gen</span></div></div>
-      <div class="skill"><h3>Web</h3><div class="tags"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Vue 3</span><span class="tag">Node.js</span><span class="tag">Tailwind</span><span class="tag">Chrome extensions</span><span class="tag">Office add-ins</span></div></div>
-      <div class="skill"><h3>Data &amp; infrastructure</h3><div class="tags"><span class="tag">Supabase / Postgres</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">Scraping &amp; RSS</span><span class="tag">Vercel</span><span class="tag">Docker</span><span class="tag">Git &amp; GitHub Actions</span><span class="tag">Linux</span></div></div>
+      <div class="skill"><h3>Web</h3><div class="tags"><span class="tag">TypeScript</span><span class="tag">Astro</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">React Native / Expo</span><span class="tag">Vue 3</span><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Tailwind</span><span class="tag">Vitest</span><span class="tag">Core Web Vitals</span><span class="tag">SEO &amp; structured data</span><span class="tag">Chrome extensions</span><span class="tag">Office add-ins</span></div></div>
+      <div class="skill"><h3>Data &amp; infrastructure</h3><div class="tags"><span class="tag">PostgreSQL / Supabase</span><span class="tag">TypeORM</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">Scraping &amp; RSS</span><span class="tag">Cloudflare</span><span class="tag">Vercel</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">pnpm + Turborepo</span><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Google Ad Manager</span></div></div>
       <div class="skill"><h3>Foundations</h3><div class="tags"><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">Java</span><span class="tag">Algorithms &amp; data structures</span><span class="tag">OOP</span><span class="tag">scikit-learn</span><span class="tag">MAHAT practical engineer</span></div></div>
     </div>
   </div>
