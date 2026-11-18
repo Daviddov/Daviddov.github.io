@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Bar-Or · AI-Driven Software Developer</title>
+<meta name="description" content="Portfolio of David Bar-Or, a full-stack developer who builds and ships production systems with AI coding agents.">
+<meta property="og:title" content="David Bar-Or · AI-Driven Software Developer">
+<meta property="og:description" content="Full-stack (Next.js / React / TypeScript). Projects, live sites, CV and GitHub.">
+<meta property="og:image" content="shots/mystory.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f4; --surface:#ffffff; --surface-2:#f0efea; --text:#16181d; --muted:#5b616e;
+  --line:#e3e2dc; --accent:#1f4e79; --accent-2:#2f6fab; --accent-soft:#e6eef7; --chip:#eef0f3;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1115; --surface:#171a20; --surface-2:#1d2129; --text:#eceef2; --muted:#9aa1ad;
+  --line:#2a2f38; --accent:#7fb3ea; --accent-2:#a5cbf2; --accent-soft:#1b2a3b; --chip:#222731;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a20; --surface-2:#1d2129; --text:#eceef2; --muted:#9aa1ad;
+  --line:#2a2f38; --accent:#7fb3ea; --accent-2:#a5cbf2; --accent-soft:#1b2a3b; --chip:#222731;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:500}
+.navlinks a{color:var(--muted)}
+.navlinks a:hover{color:var(--text);text-decoration:none}
+.theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px}
+@media (max-width:720px){.navlinks .hide-sm{display:none}}
+
+/* hero */
+.hero{padding:88px 0 64px}
+.eyebrow{font:500 13px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-.035em;margin:16px 0 18px;font-weight:800}
+h1 .soft{color:var(--muted);font-weight:700}
+.lead{font-size:19px;color:var(--muted);max-width:680px;margin:0 0 30px}
+.lead b{color:var(--text);font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0f1115}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#0f1115}}
+.btn svg{width:17px;height:17px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:56px}
+.stat{background:var(--surface);padding:20px 22px}
+.stat b{display:block;font-size:28px;letter-spacing:-.03em}
+.stat span{font-size:13px;color:var(--muted)}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:56px 0}
+h2{font-size:30px;letter-spacing:-.025em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:640px}
+
+/* how I work */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.step .n{font:500 12px "JetBrains Mono",monospace;color:var(--accent)}
+.step h3{margin:6px 0 6px;font-size:17px}
+.step p{margin:0;font-size:14.5px;color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* work */
+.job{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline}
+.job h3{margin:0;font-size:21px}
+.when{font:500 13px "JetBrains Mono",monospace;color:var(--muted)}
+.job ul{margin:14px 0 0;padding-left:20px;color:var(--muted)}
+.job li{margin:6px 0}
+.job li b{color:var(--text);font-weight:600}
+.job + .job{margin-top:14px}
+
+/* featured */
+.featured{display:grid;grid-template-columns:1.15fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px}
+.featured .shot{background:var(--surface-2);min-height:320px}
+.featured .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.featured .body{padding:30px}
+.badge{display:inline-block;font:500 12px "JetBrains Mono",monospace;color:var(--accent);background:var(--accent-soft);padding:4px 9px;border-radius:6px}
+.featured h3{font-size:26px;letter-spacing:-.02em;margin:12px 0 8px}
+.featured p{color:var(--muted);margin:0 0 12px}
+.featured ul{margin:0 0 16px;padding-left:20px;color:var(--muted);font-size:15px}
+.featured li{margin:4px 0}
+@media (max-width:860px){.featured{grid-template-columns:1fr}.featured .shot{min-height:220px;max-height:280px}}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:580px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .15s,box-shadow .15s,border-color .15s}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.card .shot{aspect-ratio:16/10;background:var(--surface-2);border-bottom:1px solid var(--line);overflow:hidden}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .ph{width:100%;height:100%;display:grid;place-items:center;font:600 15px "JetBrains Mono",monospace;color:var(--muted);background:linear-gradient(135deg,var(--accent-soft),var(--surface-2))}
+.card .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:3px 8px;border-radius:6px;background:var(--chip);color:var(--muted);font-weight:500}
+.links{display:flex;gap:16px;font-size:14px;font-weight:600;margin-top:4px}
+
+/* early */
+.early{display:flex;flex-wrap:wrap;gap:10px}
+.early a{font-size:14px;padding:8px 13px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--text)}
+.early a:hover{border-color:var(--accent);text-decoration:none}
+.early a small{color:var(--muted);margin-left:6px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.skill h3{margin:0 0 10px;font-size:15px}
+@media (max-width:640px){.skills{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:40px;text-align:center;box-shadow:var(--shadow)}
+.contact h2{margin-bottom:8px}
+.contact .ctas{justify-content:center;margin-top:22px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">David<span>.</span>Bar-Or</a>
+    <div class="navlinks">
+      <a class="hide-sm" href="#work">Work</a>
+      <a class="hide-sm" href="#projects">Projects</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a href="David-Bar-Or-CV.pdf" target="_blank" rel="noopener">CV</a>
+      <button class="theme" id="theme" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">AI-Driven Software Developer · Jerusalem</div>
+    <h1>I build and ship production software<br><span class="soft">with AI coding agents.</span></h1>
+    <p class="lead">Full-stack developer (Next.js, React, TypeScript). For the past year I haven't written code by hand. <b>I design the architecture, write the specs, direct agents like Claude Code, and review, test and ship what they build.</b> I work at a news media company and run my own products on the side.</p>
+    <div class="ctas">
+      <a class="btn primary" href="David-Bar-Or-CV.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download CV</a>
+      <a class="btn" href="https://github.com/Daviddov" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg>GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/david-baror-software-developer" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+      <a class="btn" href="mailto:Baror2009@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>500+</b><span>AI-illustrated books live on MyStory</span></div>
+      <div class="stat"><b>3</b><span>languages: Hebrew, Arabic, English</span></div>
+      <div class="stat"><b>12,000+</b><span>text segments in the Maharal corpus</span></div>
+      <div class="stat"><b>50+</b><span>public repositories on GitHub</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How I work</h2>
+    <p class="sub">AI writes the code. Deciding what to build, how it fits together, and whether it's right is still the engineering, and that part is mine.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Design</h3><p>Break the problem down, choose the stack and data model, and plan the architecture.</p></div>
+      <div class="step"><div class="n">02</div><h3>Specify</h3><p>Write clear specs and tasks so agents build the right thing on the first pass.</p></div>
+      <div class="step"><div class="n">03</div><h3>Direct</h3><p>Run Claude Code and multi-agent workflows, using MCP tools and browser automation.</p></div>
+      <div class="step"><div class="n">04</div><h3>Review &amp; ship</h3><p>Read the diffs, test in the real app, fix what's wrong, and deploy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Work</h2>
+    <p class="sub">Where I build for a living.</p>
+    <div class="job">
+      <div class="job-head"><h3>Software Developer · <a href="https://www.kikar.co.il" target="_blank" rel="noopener">Kikar HaShabbat</a></h3><span class="when">2025 – present</span></div>
+      <ul>
+        <li>Develop and maintain several high-traffic news portals with <b>React, Next.js and React Native</b>.</li>
+        <li>Built a <b>real-time content harvesting and analysis system</b> that tracks competing news sites and matches stories across sources for the editorial team.</li>
+        <li>Built an <b>RSS analytics dashboard</b> (Next.js, shadcn/ui, React Query) with live metrics, source comparison and story-match scores.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head"><h3>Mentor · Kodcode</h3><span class="when">2024 – 2025</span></div>
+      <ul><li>Taught advanced Python, data structures and algorithms to 30+ students preparing for elite tech-unit screenings.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">Products and tools I built on my own with AI agents. Most of them are live, so you can click through and try them.</p>
+
+    <article class="featured">
+      <div class="shot"><img src="shots/mystory.webp" alt="MyStory home page" loading="lazy"></div>
+      <div class="body">
+        <span class="badge">Featured · live product</span>
+        <h3>MyStory: children's picture-book library</h3>
+        <p>A full production site for reading and listening to illustrated children's books, which I designed, built and run on my own.</p>
+        <ul>
+          <li>500+ books in Hebrew, Arabic and English, with collections, a language filter, PDF export and a podcast RSS feed</li>
+          <li>AI pipeline: LLM-written stories, generated illustrations cut automatically from image grids, TTS narration with Hebrew vowel marks, AI music and animated pages</li>
+          <li>Review tooling for sources, imports and bad image panels</li>
+        </ul>
+        <div class="tags"><span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">LLM · TTS · image gen</span></div>
+        <div class="links" style="margin-top:16px"><a href="https://mystory-alpha.vercel.app" target="_blank" rel="noopener">Visit site →</a><a href="https://github.com/Daviddov/mystory" target="_blank" rel="noopener">Code</a></div>
+      </div>
+    </article>
+
+    <div class="grid">
+      <article class="card">
+        <div class="shot"><img src="shots/maharal.webp" alt="Maharal works reader" loading="lazy"></div>
+        <div class="body">
+          <h3>Works of the Maharal</h3>
+          <p>A reader with search across all 15 of the Maharal's works. I built the corpus with a Python pipeline from the Sefaria API: 12,000+ referenced segments, 8.6M characters.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Sefaria API</span><span class="tag">Vercel</span></div>
+          <div class="links"><a href="https://maharal-books.vercel.app" target="_blank" rel="noopener">Visit →</a><a href="https://github.com/Daviddov/maharal_books" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="shots/zohar.webp" alt="Zohar study app" loading="lazy"></div>
+        <div class="body">
+          <h3>Zohar study app</h3>
+          <p>Read the Zohar by chapter and export the text to a Word document.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">Sefaria API</span><span class="tag">docx</span></div>
+          <div class="links"><a href="https://daviddov.github.io/sefaria_web_app/" target="_blank" rel="noopener">Visit →</a><a href="https://github.com/Daviddov/sefaria_web_app" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="shots/commentaries.webp" alt="Zohar on the weekly portion search" loading="lazy"></div>
+        <div class="body">
+          <h3>Zohar on the weekly portion</h3>
+          <p>Pick a Torah portion or verse and get every Zohar passage linked to it.</p>
+          <div class="tags"><span class="tag">Vue 3</span><span class="tag">Vite</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span></div>
+          <div class="links"><a href="https://daviddov.github.io/sefaria_web_app/commentaries-grabber/" target="_blank" rel="noopener">Visit →</a><a href="https://github.com/Daviddov/sefaria_web_app" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="shots/library.webp" alt="Word library add-in" loading="lazy"></div>
+        <div class="body">
+          <h3>Torah citations add-in for Word</h3>
+          <p>A Microsoft Word add-in that finds Torah citations in a document through the Dicta API and inserts them as footnotes or inline references.</p>
+          <div class="tags"><span class="tag">Office.js</span><span class="tag">Dicta API</span><span class="tag">Node proxy</span></div>
+          <div class="links"><a href="https://daviddov.github.io/word_extantion_v2/" target="_blank" rel="noopener">Visit →</a><a href="https://github.com/Daviddov/word_extantion" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="shots/sources.webp" alt="Sefaria sources add-in" loading="lazy"></div>
+        <div class="body">
+          <h3>Sefaria sources finder</h3>
+          <p>Select Hebrew text, and it finds and marks the Jewish sources it quotes, then adds them as footnotes.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">Sefaria API</span><span class="tag">Office.js</span></div>
+          <div class="links"><a href="https://daviddov.github.io/word_ex/" target="_blank" rel="noopener">Visit →</a><a href="https://github.com/Daviddov/word_ex" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="shots/vehicle.webp" alt="Vehicle info checker" loading="lazy"></div>
+        <div class="body">
+          <h3>Vehicle info checker</h3>
+          <p>Look up any Israeli plate number on government open data: model, ownership history, mileage tests and disability permits.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">data.gov.il</span></div>
+          <div class="links"><a href="https://daviddov.github.io/vehicle_info_checker/" target="_blank" rel="noopener">Visit →</a><a href="https://github.com/Daviddov/vehicle_info_checker" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><div class="ph">RSS · analytics</div></div>
+        <div class="body">
+          <h3>RSS analytics dashboard</h3>
+          <p>A dashboard for a news-monitoring system: live article and match counts, source comparison, category breakdown and similarity scores.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">shadcn/ui</span><span class="tag">React Query</span><span class="tag">Charts</span></div>
+          <div class="links"><a href="https://github.com/Daviddov/claude_feed_ui" target="_blank" rel="noopener">Code →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><div class="ph">Chrome · extension</div></div>
+        <div class="body">
+          <h3>Yad2 price checker</h3>
+          <p>A Chrome extension that adds a price check to car listings on Yad2.</p>
+          <div class="tags"><span class="tag">Chrome MV3</span><span class="tag">JavaScript</span></div>
+          <div class="links"><a href="https://github.com/Daviddov/yad2_extation" target="_blank" rel="noopener">Code →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><div class="ph">C++ · OpenCV</div></div>
+        <div class="body">
+          <h3>Mobileye bootcamp: security camera</h3>
+          <p>I led the team on a multi-threaded security-camera system with AI image processing and a database of image insights.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">OpenCV</span><span class="tag">Docker</span><span class="tag">Multithreading</span></div>
+          <div class="links"><a href="https://github.com/Daviddov/MobileyeBootcamp" target="_blank" rel="noopener">Code →</a></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 style="margin:44px 0 6px;font-size:18px">Earlier work</h3>
+    <p class="sub" style="margin-bottom:16px">Projects from when I was learning to code by hand, 2022–2023.</p>
+    <div class="early">
+      <a href="https://daviddov.github.io/cinamaDB/" target="_blank" rel="noopener">CinemaDB<small>React</small></a>
+      <a href="https://daviddov.github.io/Speech-to-Text/" target="_blank" rel="noopener">Speech to Text<small>React</small></a>
+      <a href="https://daviddov.github.io/react-finel-project/" target="_blank" rel="noopener">React final project<small>React</small></a>
+      <a href="https://daviddov.github.io/react-tic-tac-teo/" target="_blank" rel="noopener">Tic-Tac-Toe<small>React</small></a>
+      <a href="https://daviddov.github.io/fishCoin/" target="_blank" rel="noopener">FishCoin<small>Canvas game</small></a>
+      <a href="https://daviddov.github.io/CandyGrub.io/" target="_blank" rel="noopener">CandyGrub<small>JS game</small></a>
+      <a href="https://github.com/Daviddov/restaurant-java" target="_blank" rel="noopener">Restaurant system<small>Java</small></a>
+      <a href="https://github.com/Daviddov/Black-Jack-Java" target="_blank" rel="noopener">Blackjack<small>Java</small></a>
+      <a href="https://github.com/Daviddov/full-stack-project-estimateTime" target="_blank" rel="noopener">Estimate Time<small>Full-stack</small></a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sub">The tools I build with, and the foundations I use to judge what AI produces.</p>
+    <div class="skills">
+      <div class="skill"><h3>AI development</h3><div class="tags"><span class="tag">Claude Code</span><span class="tag">Multi-agent workflows</span><span class="tag">MCP</span><span class="tag">Browser automation</span><span class="tag">Spec &amp; prompt writing</span><span class="tag">Anthropic API</span><span class="tag">Gemini</span><span class="tag">Image / TTS / music gen</span></div></div>
+      <div class="skill"><h3>Web</h3><div class="tags"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Vue 3</span><span class="tag">Node.js</span><span class="tag">Tailwind</span><span class="tag">Chrome extensions</span><span class="tag">Office add-ins</span></div></div>
+      <div class="skill"><h3>Data &amp; infrastructure</h3><div class="tags"><span class="tag">Supabase / Postgres</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">Scraping &amp; RSS</span><span class="tag">Vercel</span><span class="tag">Docker</span><span class="tag">Git &amp; GitHub Actions</span><span class="tag">Linux</span></div></div>
+      <div class="skill"><h3>Foundations</h3><div class="tags"><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">Java</span><span class="tag">Algorithms &amp; data structures</span><span class="tag">OOP</span><span class="tag">scikit-learn</span><span class="tag">MAHAT practical engineer</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's talk</h2>
+      <p class="sub" style="margin:0 auto">Looking for a full-stack or AI-focused developer role in Jerusalem or hybrid.</p>
+      <div class="ctas">
+        <a class="btn primary" href="mailto:Baror2009@gmail.com">Baror2009@gmail.com</a>
+        <a class="btn" href="tel:+972527679619">052-7679619</a>
+        <a class="btn" href="David-Bar-Or-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="btn" href="https://github.com/Daviddov" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/david-baror-software-developer" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 David Bar-Or · Built with AI agents, like everything else here.</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
